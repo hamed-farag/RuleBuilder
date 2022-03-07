@@ -13,7 +13,7 @@ const workflows = [
 const constants = {
     entity: {
         values: [
-            { key: "condition", value: "condition" },
+            { key: "diagnosis", value: "diagnosis" },
             { key: "plan", value: "plan" },
             { key: "patient", value: "patient" },
             { key: "provider", value: "provider" },
@@ -21,21 +21,20 @@ const constants = {
     },
     properties: [
         {
-            entity: "condition",
+            entity: "diagnosis",
             type: "select",
             values: [
-                { key: "primary", value: "primary" },
-                { key: "secondary", value: "secondary" },
+                { key: "code", value: "code" }
             ],
         },
         {
             entity: "plan",
             type: "select",
             values: [
-                { key: "procedures", value: "procedures" },
-                { key: "labs", value: "labs" },
+                { key: "procedure", value: "procedure" },
+                { key: "lab", value: "lab" },
                 { key: "radiology", value: "radiology" },
-                { key: "drugs", value: "drugs" },
+                { key: "medication", value: "medication" },
             ],
         },
         {
@@ -65,8 +64,7 @@ const constants = {
     },
     values: [
         { property: "code", type: "text", value: "" },
-        { property: "labs", type: "text", value: "" },
-        { property: "primary", type: "text", value: "" },
+        { property: "lab", type: "text", value: "" },
         {
             property: "gender",
             type: "select",
