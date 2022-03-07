@@ -28,8 +28,13 @@ export default function Rule({ data }) {
     };
 
     const renderSubRules = (rule) => {
-        return rule.map((subRule) => {
-            return <SubRuleForm data={{ subRule }} />;
+        return rule.map((subRule, index) => {
+            return (
+                <>
+                    {index !== 0 ? <span>AND</span> : null}
+                    <SubRuleForm data={{ subRule }} />
+                </>
+            );
         });
     };
 
