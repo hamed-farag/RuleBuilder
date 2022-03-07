@@ -26,6 +26,15 @@ function rulesMapper(rules) {
     });
 }
 
+function workflowMapper(workflows) {
+    return workflows.map((workflow) => {
+        return {
+            name: workflow.workflowName,
+            rules: workflow.rules.map((rule) => rule.expression),
+        };
+    });
+}
+
 function generateSubRuleMapper(constants) {
     const defaultEntity = constants.entity.values[0].value;
     const defaultProperty = constants.properties.find((property) => property.entity === defaultEntity);
@@ -42,4 +51,4 @@ function generateSubRuleMapper(constants) {
     return newSubRule;
 }
 
-export { rulesMapper, generateSubRuleMapper };
+export { rulesMapper, generateSubRuleMapper, workflowMapper };
