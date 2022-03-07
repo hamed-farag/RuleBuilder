@@ -3,7 +3,7 @@ import { useState, useEffect } from "react";
 import SubRuleForm from "../SubRoleForm";
 
 import Button from "../UI/Button";
-import Dropdown from "../UI/Dropdown";
+import CustomDropdown from "../UI/Dropdown";
 
 import { constants } from "../../data";
 
@@ -36,19 +36,19 @@ export default function Rule({ data }) {
                 <span>If</span>
                 <section id="rule-ctr__body">
                     {renderSubRules(subRules)}
-                    <Button type="button" value="+ And" onClick={() => handleAddClick("AND")} />
+                    <Button value="+ And" onClick={() => handleAddClick("AND")} />
                 </section>
             </section>
             <section id="rule-ctr__tail">
-                <Dropdown
+                <CustomDropdown
                     options={[
                         { key: "hint", value: "hint" },
                         { key: "warning", value: "warning" },
                         { key: "error", value: "error" },
                     ]}
                     defaultValue={"hint"}
-                    onChange={(e) => {
-                        console.info(e.target.value);
+                    onChange={(v) => {
+                        console.warn(v);
                     }}
                 />
                 <textarea />
