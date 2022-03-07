@@ -48,12 +48,12 @@ export default function Rule({ data }) {
                 <span>If</span>
                 <section id="rule-ctr__body">
                     {renderSubRules(subRules)}
-                    <Button type="button" value="+ And" onClick={() => handleAddClick("AND")} />
+                    <Button variant="secondary" value="+ And" onClick={() => handleAddClick("AND")} />
                 </section>
             </section>
             <section id="rule-ctr__tail">
                 <SuccessMessage data={{ successMessage }} onChange={handleSuccessMessageChange} />
             </section>
-        </section>
+        </section >
     );
 }

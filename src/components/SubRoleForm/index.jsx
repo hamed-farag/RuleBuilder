@@ -38,8 +38,8 @@ export default function SubRoleForm({ data }) {
         if (selectedProperty) {
             switch (selectedProperty.type) {
                 case "select": {
-                    return drawDropdown(selectedProperty.values, value, (e) => {
-                        setNewRule({ ...newRule, property: e.target.value });
+                    return drawDropdown(selectedProperty.values, value, (v) => {
+                        setNewRule({ ...newRule, property: v });
                     });
                 }
 
@@ -57,16 +57,16 @@ export default function SubRoleForm({ data }) {
         if (selectedValue) {
             switch (selectedValue.type) {
                 case "select": {
-                    return drawDropdown(selectedValue.values, value, (e) => {
-                        setNewRule({ ...newRule, value: e.target.value });
+                    return drawDropdown(selectedValue.values, value, (v) => {
+                        setNewRule({ ...newRule, value: v });
                     });
                 }
 
                 case "text": {
                     return drawTextbox(
                         selectedValue.value,
-                        (e) => {
-                            setNewRule({ ...newRule, value: e.target.value });
+                        (v) => {
+                            setNewRule({ ...newRule, value: v });
                         },
                         value
                     );
@@ -81,16 +81,16 @@ export default function SubRoleForm({ data }) {
     };
 
     const renderEntity = (entity, value) => {
-        return drawDropdown(entity.values, value, (e) => {
-            setNewRule({ ...newRule, entity: e.target.value });
+        return drawDropdown(entity.values, value, (v) => {
+            setNewRule({ ...newRule, entity: v });
         });
     };
 
     const renderOperator = (operator, value) => {
         switch (operator.type) {
             case "select": {
-                return drawDropdown(operator.values, value, (e) => {
-                    setNewRule({ ...newRule, operator: e.target.value });
+                return drawDropdown(operator.values, value, (v) => {
+                    setNewRule({ ...newRule, operator: v });
                 });
             }
 
@@ -101,7 +101,7 @@ export default function SubRoleForm({ data }) {
     };
 
     return (
-        <section>
+        <section className="subform">
             {renderEntity(constants.entity, newRule.entity)}
             {renderProperty(constants.properties, newRule.property, newRule.entity)}
             {renderOperator(constants.operator, newRule.operator)}

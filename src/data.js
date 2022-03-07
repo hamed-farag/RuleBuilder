@@ -77,8 +77,9 @@ const constants = {
             property: "speciality",
             type: "select",
             values: [
-                { key: "ENT", value: "ENT" },
+                { key: "Endocrinology", value: "Endocrinology" },
                 { key: "Oby", value: "Oby" },
+                { key: "ENT", value: "ENT" }
             ],
         },
         { property: "age", type: "text", value: "" },
