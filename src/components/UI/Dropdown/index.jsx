@@ -7,7 +7,7 @@ export default function Dropdown(props) {
     const { onChange, options, defaultValue } = props;
     const [selected, setSelected] = useState('');
 
-    useEffect(() => { setSelected(defaultValue) }, [])
+    useEffect(() => { setSelected(defaultValue) }, [defaultValue])
     return (
         <BDropdown className="scrps-drpdwn">
             <BDropdown.Toggle variant="primary" id="dropdown-basic">
