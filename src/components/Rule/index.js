@@ -3,20 +3,23 @@ import { useState, useEffect } from "react";
 import SubRuleForm from "../SubRoleForm";
 
 import Button from "../UI/Button";
-import Dropdown from "../UI/Dropdown";
+
+import SuccessMessage from "./components/SuccessMessage";
 
 import { constants } from "../../data";
 
-import { generateSubRuleMapper } from "../../mapper";
+import { generateSubRuleMapper } from "../../mappers";
 
 import "./styles.scss";
 
 export default function Rule({ data }) {
     const { rule } = data;
     const [subRules, setSubRules] = useState([]);
+    const [successMessage, setSuccessMessage] = useState({});
 
     useEffect(() => {
-        setSubRules(rule);
+        setSubRules(rule.subRules);
+        setSuccessMessage(rule.successMessage);
     }, [rule]);
 
     const handleAddClick = (operator) => {
@@ -30,6 +33,10 @@ export default function Rule({ data }) {
         });
     };
 
+    const handleSuccessMessageChange = (name, value) => {
+        setSuccessMessage({ ...successMessage, [name]: value });
+    };
+
     return (
         <section id="rule-ctr">
             <section id="rule-ctr__head">
@@ -40,18 +47,7 @@ export default function Rule({ data }) {
                 </section>
             </section>
             <section id="rule-ctr__tail">
-                <Dropdown
-                    options={[
-                        { key: "hint", value: "hint" },
-                        { key: "warning", value: "warning" },
-                        { key: "error", value: "error" },
-                    ]}
-                    defaultValue={"hint"}
-                    onChange={(e) => {
-                        console.info(e.target.value);
-                    }}
-                />
-                <textarea />
+                <SuccessMessage data={{ successMessage }} onChange={handleSuccessMessageChange} />
             </section>
         </section>
     );

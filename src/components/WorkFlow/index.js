@@ -4,7 +4,7 @@ import Rule from "../Rule";
 import Button from "../UI/Button";
 
 import { constants } from "../../data";
-import { generateSubRuleMapper } from "../../mapper";
+import { generateSubRuleMapper } from "../../mappers";
 
 import "./styles.scss";
 

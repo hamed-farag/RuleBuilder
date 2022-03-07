@@ -2,9 +2,10 @@ import { splitStringUsingAndOrOperator, splitStringUsingConditionalOperators, sp
 
 function rulesMapper(rules) {
     return rules.map((rule) => {
-        const subRules = splitStringUsingAndOrOperator(rule);
+        const subRulesSplitted = splitStringUsingAndOrOperator(rule.expression);
+        let successMessage = {};
 
-        return subRules.map((subRule) => {
+        const subRules = subRulesSplitted.map((subRule) => {
             const operatorStartPosition = subRule.search(/==|>=|<=|<|>|!=\b/);
             const operatorWithRightSideSubRule = subRule.substring(operatorStartPosition);
             const indexOfFirstSpaceAfterTheOperator = operatorWithRightSideSubRule.search(" ");
@@ -23,6 +24,17 @@ function rulesMapper(rules) {
                 value: subRUleRightSide,
             };
         });
+
+        try {
+            successMessage = JSON.parse(rule.successMessage);
+        } catch (e) {
+            console.log("invalid json: (successEvent not a json object!)");
+        }
+
+        return {
+            subRules,
+            successMessage: successMessage,
+        };
     });
 }
 
@@ -30,7 +42,9 @@ function workflowMapper(workflows) {
     return workflows.map((workflow) => {
         return {
             name: workflow.workflowName,
-            rules: workflow.rules.map((rule) => rule.expression),
+            rules: workflow.rules.map((rule) => {
+                return { expression: rule.expression, successMessage: rule.successEvent };
+            }),
         };
     });
 }

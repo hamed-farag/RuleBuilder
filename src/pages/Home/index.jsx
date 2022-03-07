@@ -4,7 +4,7 @@ import Workflow from "../../components/WorkFlow";
 
 import { fetchWorkflowsService } from "../../services";
 
-import { rulesMapper } from "../../mapper";
+import { rulesMapper } from "../../mappers";
 
 import "./styles.scss";
 
