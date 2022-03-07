@@ -56,7 +56,11 @@ const constants = {
         type: "select",
         values: [
             { key: "equal", value: "==" },
-            { key: "great or equal", value: "<=" },
+            { key: "greater or equal", value: ">=" },
+            { key: "greater than", value: ">" },
+            { key: "less than", value: "<" },
+            { key: "less than or equal", value: "<=" },
+            { key: "not equal", value: "!=" },
         ],
     },
     values: [
