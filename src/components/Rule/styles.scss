@@ -1,4 +1,5 @@
 #rule-ctr {
+    width: 100%;
     display: flex;
     justify-content: center;
     align-items: flex-start;
@@ -7,6 +8,7 @@
         display: flex;
         justify-content: flex-start;
         align-items: flex-start;
+        width: 50%;
         > span {
             display: block;
             margin: 0 1rem;
@@ -21,6 +23,6 @@
     }
     &__tail {
         display: flex;
-        flex-direction: column;
+        flex-direction: row;
     }
 }
