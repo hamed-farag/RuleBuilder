@@ -1,7 +1,7 @@
 #rule-ctr {
     display: flex;
     justify-content: center;
-    align-items: self-start;
+    align-items: flex-start;
     margin-bottom: 1.25rem;
     &__head {
         display: flex;
@@ -13,6 +13,7 @@
             font-size: 1.25rem;
             font-weight: bold;
             line-height: 1;
+            font-style: italic;
         }
     }
     &__body {
