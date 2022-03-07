@@ -1,0 +1,25 @@
+#rule-ctr {
+    display: flex;
+    justify-content: center;
+    align-items: self-start;
+    margin-bottom: 1.25rem;
+    &__head {
+        display: flex;
+        justify-content: start;
+        align-items: flex-start;
+        > span {
+            display: block;
+            margin: 0 1rem;
+            font-size: 1.25rem;
+            font-weight: bold;
+            line-height: 1;
+        }
+    }
+    &__body {
+        margin: 0 1.5rem;
+    }
+    &__tail {
+        display: flex;
+        flex-direction: column;
+    }
+}
