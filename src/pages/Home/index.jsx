@@ -18,6 +18,10 @@ export default function Home() {
         if (data) {
             setWorkflows(data);
         }
+
+        if (error) {
+            alert("error");
+        }
     };
 
     const renderWorkflows = () => {
