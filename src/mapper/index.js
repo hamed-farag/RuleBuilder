@@ -26,4 +26,20 @@ function rulesMapper(rules) {
     });
 }
 
-export { rulesMapper };
+function generateSubRuleMapper(constants) {
+    const defaultEntity = constants.entity.values[0].value;
+    const defaultProperty = constants.properties.find((property) => property.entity === defaultEntity);
+    const defaultValue = constants.values.find((value) => value.property === defaultProperty.values[0].value);
+    const defaultOperator = constants.operator.values[0].value;
+
+    const newSubRule = {
+        entity: defaultEntity,
+        property: defaultProperty.values[0].value,
+        operator: defaultOperator,
+        value: defaultValue.value,
+    };
+
+    return newSubRule;
+}
+
+export { rulesMapper, generateSubRuleMapper };

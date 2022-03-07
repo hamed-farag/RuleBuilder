@@ -4,6 +4,8 @@ import SubRuleForm from "../SubRoleForm";
 
 import { constants } from "../../data";
 
+import { generateSubRuleMapper } from "../../mapper";
+
 export default function Rule({ data }) {
     const { rule } = data;
     const [subRules, setSubRules] = useState([]);
@@ -13,18 +15,7 @@ export default function Rule({ data }) {
     }, [rule]);
 
     const handleAddClick = (operator) => {
-        const defaultEntity = constants.entity.values[0].value;
-        const defaultProperty = constants.properties.find((property) => property.entity === defaultEntity);
-        const defaultValue = constants.values.find((value) => value.property === defaultProperty.values[0].value);
-        const defaultOperator = constants.operator.values[0].value;
-
-        const newSubRule = {
-            entity: defaultEntity,
-            property: defaultProperty.values[0].value,
-            operator: defaultOperator,
-            value: defaultValue.value,
-        };
-
+        const newSubRule = generateSubRuleMapper(constants);
         setSubRules([...subRules, newSubRule]);
     };
 
