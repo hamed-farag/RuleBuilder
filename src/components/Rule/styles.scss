@@ -1,18 +1,21 @@
 #rule-ctr {
+    width: 100%;
     display: flex;
     justify-content: center;
-    align-items: self-start;
+    align-items: flex-start;
     margin-bottom: 1.25rem;
     &__head {
         display: flex;
         justify-content: flex-start;
         align-items: flex-start;
+        width: 50%;
         > span {
             display: block;
             margin: 0 1rem;
             font-size: 1.25rem;
             font-weight: bold;
             line-height: 1;
+            font-style: italic;
         }
     }
     &__body {
@@ -20,6 +23,6 @@
     }
     &__tail {
         display: flex;
-        flex-direction: column;
+        flex-direction: row;
     }
 }
