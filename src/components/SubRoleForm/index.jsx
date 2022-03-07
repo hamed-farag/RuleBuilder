@@ -1,5 +1,11 @@
 import { useState, useEffect } from "react";
+
+import Textbox from "../UI/Textbox";
+import Dropdown from "../UI/Dropdown";
+
 import { constants } from "../../data";
+
+import "./styles.scss";
 
 export default function SubRoleForm({ data }) {
     const { subRule: rule } = data;
@@ -18,25 +24,12 @@ export default function SubRoleForm({ data }) {
     }, [rule]);
 
     const drawDropdown = (values, selectedValue, onChange) => {
-        return (
-            <select onChange={onChange}>
-                {values.map((item) => {
-                    if (selectedValue && item.value === selectedValue) {
-                        return (
-                            <option value={item.value} selected>
-                                {item.key}
-                            </option>
-                        );
-                    }
-                    return <option value={item.value}>{item.key}</option>;
-                })}
-            </select>
-        );
+        return <Dropdown options={values} onChange={onChange} defaultValue={selectedValue} />;
     };
 
     const drawTextbox = (selectedValue, onChange, defaultValue = "") => {
         const currentValue = selectedValue ? selectedValue : defaultValue;
-        return <input type="text" value={currentValue} onChange={onChange} />;
+        return <Textbox value={currentValue} onChange={onChange} />;
     };
 
     const renderProperty = (properties, value, currentEntity) => {

@@ -6,6 +6,8 @@ import { fetchWorkflowsService } from "../../services";
 
 import { rulesMapper } from "../../mapper";
 
+import "./styles.scss";
+
 export default function Home() {
     const [workflows, setWorkflows] = useState([]);
 

@@ -2,9 +2,13 @@ import { useState, useEffect } from "react";
 
 import SubRuleForm from "../SubRoleForm";
 
+import Button from "../UI/Button";
+
 import { constants } from "../../data";
 
 import { generateSubRuleMapper } from "../../mapper";
+
+import "./styles.scss";
 
 export default function Rule({ data }) {
     const { rule } = data;
@@ -30,7 +34,7 @@ export default function Rule({ data }) {
             <section>
                 <span>If</span>
                 <section>{renderSubRules(subRules)}</section>
-                <input type="button" value="+ And" onClick={() => handleAddClick("AND")} />
+                <Button type="button" value="+ And" onClick={() => handleAddClick("AND")} />
             </section>
             <hr />
         </section>

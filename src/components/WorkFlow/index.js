@@ -1,9 +1,12 @@
 import React, { useState, useEffect } from "react";
 
 import Rule from "../Rule";
+import Button from "../UI/Button";
 
 import { constants } from "../../data";
 import { generateSubRuleMapper } from "../../mapper";
+
+import "./styles.scss";
 
 export default function Workflow({ data }) {
     const { workflow } = data;
@@ -27,7 +30,7 @@ export default function Workflow({ data }) {
             </section>
 
             {/* new Whole Section */}
-            <input type="button" value="Add New Rule" onClick={handleAddRule} />
+            <Button type="button" value="Add New Rule" onClick={handleAddRule} />
             <hr />
             <hr />
         </section>
