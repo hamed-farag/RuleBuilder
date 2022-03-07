@@ -2,6 +2,8 @@ import { useState, useEffect } from "react";
 
 import SubRuleForm from "../SubRoleForm";
 
+import { constants } from "../../data";
+
 export default function Rule({ data }) {
     const { rule } = data;
     const [subRules, setSubRules] = useState([]);
@@ -11,15 +13,19 @@ export default function Rule({ data }) {
     }, [rule]);
 
     const handleAddClick = (operator) => {
-        setSubRules([
-            ...subRules,
-            {
-                entity: null,
-                property: null,
-                operator: null,
-                value: null,
-            },
-        ]);
+        const defaultEntity = constants.entity.values[0].value;
+        const defaultProperty = constants.properties.find((property) => property.entity === defaultEntity);
+        const defaultValue = constants.values.find((value) => value.property === defaultProperty.values[0].value);
+        const defaultOperator = constants.operator.values[0].value;
+
+        const newSubRule = {
+            entity: defaultEntity,
+            property: defaultProperty.values[0].value,
+            operator: defaultOperator,
+            value: defaultValue.value,
+        };
+
+        setSubRules([...subRules, newSubRule]);
     };
 
     const renderSubRules = (rule) => {
@@ -32,7 +38,7 @@ export default function Rule({ data }) {
         <section>
             <section>
                 <span>If</span>
-                <section>{renderSubRules(rule)}</section>
+                <section>{renderSubRules(subRules)}</section>
                 <input type="button" value="+ And" onClick={() => handleAddClick("AND")} />
             </section>
             <hr />

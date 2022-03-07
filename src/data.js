@@ -3,8 +3,8 @@ const workflows = [
     {
         name: "workflow 1",
         rules: [
-            'plan.code == "76857" AND diagnosis.code == "N97.0,R10.30" AND provider.speciality == "Oby"',
-            'plan.code == "56765" AND diagnosis.code == "N100,R100000" AND provider.speciality == "Abd"',
+            'plan.labs == "76857"',
+            // 'plan.code == "56765" AND diagnosis.code == "N100,R100000" AND provider.speciality == "Abd"',
         ],
     },
 ];
@@ -55,12 +55,14 @@ const constants = {
     operator: {
         type: "select",
         values: [
-            { key: "equal", value: "equal" },
-            { key: "great or equal", value: "greatOrEqual" },
+            { key: "equal", value: "==" },
+            { key: "great or equal", value: "<=" },
         ],
     },
     values: [
         { property: "code", type: "text", value: "" },
+        { property: "labs", type: "text", value: "" },
+        { property: "primary", type: "text", value: "" },
         {
             property: "gender",
             type: "select",

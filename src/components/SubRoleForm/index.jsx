@@ -34,8 +34,8 @@ export default function SubRoleForm({ data }) {
         );
     };
 
-    const drawTextbox = (value, selectedValue, onChange) => {
-        const currentValue = selectedValue ? selectedValue : value;
+    const drawTextbox = (selectedValue, onChange, defaultValue = "") => {
+        const currentValue = selectedValue ? selectedValue : defaultValue;
         return <input type="text" value={currentValue} onChange={onChange} />;
     };
 
@@ -61,7 +61,6 @@ export default function SubRoleForm({ data }) {
 
     const renderValue = (values, value, currentProperty) => {
         const selectedValue = values.find((property) => property.property === currentProperty);
-
         if (selectedValue) {
             switch (selectedValue.type) {
                 case "select": {
@@ -71,9 +70,13 @@ export default function SubRoleForm({ data }) {
                 }
 
                 case "text": {
-                    return drawTextbox(selectedValue.value, value, (e) => {
-                        setNewRule({ ...newRule, value: e.target.value });
-                    });
+                    return drawTextbox(
+                        selectedValue.value,
+                        (e) => {
+                            setNewRule({ ...newRule, value: e.target.value });
+                        },
+                        value
+                    );
                 }
 
                 default:
