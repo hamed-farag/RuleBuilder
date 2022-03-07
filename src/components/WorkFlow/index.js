@@ -2,6 +2,9 @@ import React, { useState, useEffect } from "react";
 
 import Rule from "../Rule";
 
+import { constants } from "../../data";
+import { generateSubRuleMapper } from "../../mapper";
+
 export default function Workflow({ data }) {
     const { workflow } = data;
     const [rules, setRules] = useState([]);
@@ -11,7 +14,7 @@ export default function Workflow({ data }) {
     }, [workflow]);
 
     const handleAddRule = (e) => {
-        setRules([...rules, []]);
+        setRules([...rules, [generateSubRuleMapper(constants)]]);
     };
 
     return (
