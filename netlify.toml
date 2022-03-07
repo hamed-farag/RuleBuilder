@@ -3,4 +3,4 @@
   publish = "build"
 
 [context.production.environment]
-  REACT_APP_API_URL = "From netlify.toml (REACT_APP_)"
+  REACT_APP_API_URL = ""
