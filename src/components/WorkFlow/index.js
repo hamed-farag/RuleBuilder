@@ -21,9 +21,9 @@ export default function Workflow({ data }) {
     };
 
     return (
-        <section>
+        <section className="scrps-workflow">
             <h2>{workflow && workflow.name}</h2>
-            <section>
+            <section className="scrps-rules scrps-column">
                 {rules.map((rule) => {
                     return <Rule data={{ rule }}></Rule>;
                 })}

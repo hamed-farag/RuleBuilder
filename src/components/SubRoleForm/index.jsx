@@ -101,7 +101,7 @@ export default function SubRoleForm({ data }) {
     };
 
     return (
-        <section>
+        <section className="subform">
             {renderEntity(constants.entity, newRule.entity)}
             {renderProperty(constants.properties, newRule.property, newRule.entity)}
             {renderOperator(constants.operator, newRule.operator)}
