@@ -10,9 +10,6 @@ export default function SuccessMessage({ data, onChange }) {
 
     return (
         <article className="scrps-sucsForm">
-            <span>
-                <b>Success Message</b>
-            </span>
             <Dropdown
                 options={[
                     { key: "hint", value: "hint" },
@@ -25,24 +22,28 @@ export default function SuccessMessage({ data, onChange }) {
                 }}
             />
             <Textbox
+                label={"Title"}
                 value={title}
                 onChange={(e) => {
                     onChange("title", e.target.value);
                 }}
             />
             <Textbox
+                label={"Subtitle"}
                 value={subtitle}
                 onChange={(e) => {
                     onChange("subtitle", e.target.value);
                 }}
             />
             <TextArea
+                label={"Description"}
                 value={description}
                 onChange={(e) => {
                     onChange("description", e.target.value);
                 }}
             />
             <TextArea
+                label={"Suggestion"}
                 value={suggestion}
                 onChange={(e) => {
                     onChange("suggestion", e.target.value);

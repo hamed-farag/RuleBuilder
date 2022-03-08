@@ -5,9 +5,12 @@ import "./styles.scss";
 
 export default function Dropdown(props) {
     const { onChange, options, defaultValue } = props;
-    const [selected, setSelected] = useState('');
+    const [selected, setSelected] = useState("");
 
-    useEffect(() => { setSelected(defaultValue) }, [defaultValue])
+    useEffect(() => {
+        setSelected(defaultValue);
+    }, [defaultValue]);
+
     return (
         <BDropdown className="scrps-drpdwn">
             <BDropdown.Toggle variant="primary" id="dropdown-basic">
@@ -16,9 +19,17 @@ export default function Dropdown(props) {
 
             <BDropdown.Menu>
                 {options.map((item) => {
-                    return <BDropdown.Item value={item.value} onClick={() => { setSelected(item.value); onChange(item.value); }}>
-                        {item.key}
-                    </BDropdown.Item>;
+                    return (
+                        <BDropdown.Item
+                            value={item.value}
+                            onClick={() => {
+                                setSelected(item.value);
+                                onChange(item.value);
+                            }}
+                        >
+                            {item.key}
+                        </BDropdown.Item>
+                    );
                 })}
             </BDropdown.Menu>
         </BDropdown>

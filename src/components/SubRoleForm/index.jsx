@@ -39,6 +39,7 @@ export default function SubRoleForm({ data }) {
             switch (selectedProperty.type) {
                 case "select": {
                     return drawDropdown(selectedProperty.values, value, (v) => {
+                        debugger;
                         setNewRule({ ...newRule, property: v });
                     });
                 }
@@ -65,8 +66,9 @@ export default function SubRoleForm({ data }) {
                 case "text": {
                     return drawTextbox(
                         selectedValue.value,
-                        (v) => {
-                            setNewRule({ ...newRule, value: v });
+                        (e) => {
+                            debugger;
+                            setNewRule({ ...newRule, value: e.target.value });
                         },
                         value
                     );

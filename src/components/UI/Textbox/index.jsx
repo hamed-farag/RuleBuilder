@@ -3,15 +3,15 @@ import FormControl from "react-bootstrap/FormControl";
 
 import "./styles.scss";
 
-export default function TextArea({ value, label, onChange }) {
+export default function Textbox({ label, value, onChange }) {
     return (
-        <article className="scrps-txtarea">
+        <article className="scrps-txt">
             {label && (
                 <FormLabel htmlFor={label}>
                     <b>{label}</b>
                 </FormLabel>
             )}
-            <FormControl id={label} as="textarea" rows={3} value={value} onChange={onChange} />
+            <FormControl id={label} value={value} onChange={onChange} />
         </article>
     );
 }
