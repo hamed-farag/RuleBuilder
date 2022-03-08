@@ -17,12 +17,12 @@ export default function Workflow({ data }) {
     }, [workflow]);
 
     const handleAddRule = (e) => {
-        setRules([...rules, [generateSubRuleMapper(constants)]]);
+        setRules([...rules, generateSubRuleMapper(constants)]);
     };
 
     return (
         <section className="scrps-workflow">
-            <h2>{workflow && workflow.name}</h2>
+            {/* <h2>{workflow && workflow.name}</h2> */}
             <section className="scrps-rules scrps-column">
                 {rules.map((rule) => {
                     return <Rule data={{ rule }}></Rule>;
@@ -31,8 +31,6 @@ export default function Workflow({ data }) {
 
             {/* new Whole Section */}
             <Button type="button" value="Add New Rule" onClick={handleAddRule} />
-            <hr />
-            <hr />
         </section>
     );
 }

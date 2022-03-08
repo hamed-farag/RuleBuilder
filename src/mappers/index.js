@@ -1,9 +1,13 @@
 import { splitStringUsingAndOrOperator, splitStringUsingConditionalOperators, splitString } from "../utils";
 
+function createSuccessMessage() {
+    return { type: "hint", title: "", subtitle: "", description: "", suggestion: "" };
+}
+
 function rulesMapper(rules) {
     return rules.map((rule) => {
         const subRulesSplitted = splitStringUsingAndOrOperator(rule.expression);
-        let successMessage = {};
+        let successMessage = createSuccessMessage();
 
         const subRules = subRulesSplitted.map((subRule) => {
             const operatorStartPosition = subRule.search(/==|>=|<=|<|>|!=\b/);
@@ -62,7 +66,10 @@ function generateSubRuleMapper(constants) {
         value: defaultValue.value,
     };
 
-    return newSubRule;
+    return {
+        subRules: [newSubRule],
+        successMessage: createSuccessMessage(),
+    };
 }
 
 export { rulesMapper, generateSubRuleMapper, workflowMapper };

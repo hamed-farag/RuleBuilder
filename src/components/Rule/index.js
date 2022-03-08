@@ -54,6 +54,6 @@ export default function Rule({ data }) {
             <section id="rule-ctr__tail">
                 <SuccessMessage data={{ successMessage }} onChange={handleSuccessMessageChange} />
             </section>
-        </section >
+        </section>
     );
 }
