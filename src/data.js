@@ -60,6 +60,7 @@ const constants = {
     },
     values: [
         { property: "code", type: "text", value: "" },
+        { property: "procedure", type: "text", value: "" },
         { property: "lab", type: "text", value: "" },
         {
             property: "gender",
