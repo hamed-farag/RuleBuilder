@@ -7,3 +7,36 @@ body {
     -moz-osx-font-smoothing: grayscale;
     background-color: #e5e5e5;
 }
+
+.dropdown-toggle {
+    background-color: #f4f7f8;
+    border-color: #fff;
+    color: gray;
+    border-style: solid;
+    border-top: none;
+    border-right: none;
+    border-left: none;
+    outline: none !important;
+    &:hover {
+        background-color: #d3d3d3;
+        border-color: #fff;
+        color: gray;
+    }
+    &:focus {
+        outline: none !important;
+    }
+}
+
+.btn-primary.dropdown-toggle {
+    background-color: #f4f7f8 !important;
+    border-color: #fff !important;
+    color: gray !important;
+}
+
+.dropdown-menu {
+    background-color: #f4f7f8;
+}
+
+.dropdown-menu > li > a {
+    color: #fff;
+}
