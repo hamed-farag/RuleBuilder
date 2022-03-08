@@ -1,4 +1,9 @@
 .scrps-drpdwn {
     margin-bottom: 5px;
-    margin-right: 5px;
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    .form-label {
+        width: 107px;
+    }
 }

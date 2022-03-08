@@ -11,6 +11,7 @@ export default function SuccessMessage({ data, onChange }) {
     return (
         <article className="scrps-sucsForm">
             <Dropdown
+                label={"Show As"}
                 options={[
                     { key: "hint", value: "hint" },
                     { key: "warning", value: "warning" },

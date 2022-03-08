@@ -1,4 +1,8 @@
 .subform {
     display: flex;
     flex-direction: row;
+    .scrps-drpdwn,
+    .scrps-txt {
+        margin-right: 0.5rem;
+    }
 }
