@@ -1,6 +1,6 @@
 #rule-ctr {
     display: flex;
-    justify-content: space-evenly;
+    justify-content: flex-start;
     align-items: flex-start;
     margin-bottom: 1.25rem;
     margin: 0 auto;
@@ -15,6 +15,7 @@
         display: flex;
         justify-content: flex-start;
         align-items: flex-start;
+        margin-right: 2rem;
         > span {
             display: block;
             margin: 0 1rem;
