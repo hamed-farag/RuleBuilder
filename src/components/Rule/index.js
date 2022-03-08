@@ -53,6 +53,6 @@ export default function Rule({ data }) {
                 />
                 <textarea />
             </section>
-        </section>
+        </section >
     );
 }
